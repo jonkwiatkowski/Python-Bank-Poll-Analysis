@@ -29,18 +29,16 @@ TotalVotes = len(BallotID)
 #Create empty dictionary
 CandidateDict = {}
 
-for i in Candidate:
-    # Increment each element that already appears in the dictionary
-    if i in CandidateDict:
-        CandidateDict[i] += 1
+# Build dictionary by ncrementing each element that already appears
+for candidate in Candidate:
+
+    if candidate in CandidateDict:
+        CandidateDict[candidate] += 1
     else:
-        CandidateDict[i] = 1 
+        CandidateDict[candidate] = 1 
 
-# Eliminate duplicates
-CandidateDict = { candidate:number for candidate, number in CandidateDict.items() if number > 1}
-
-print(CandidateDict)
-
+# Eliminate duplicates keeping only unique candidates as keys and their frequency as values
+CandidateDict = {candidate:number for candidate, number in CandidateDict.items() if number > 1}
 
 # Print results
 print("Election Results")
@@ -52,8 +50,8 @@ print("Total Votes: " + str(TotalVotes))
 print("------------------------------------------")
 
 for candidate in CandidateDict:
-    PercentVotes = round((CandidateDict[candidate]/TotalVotes)*100,3)
-    print(f"{candidate} {PercentVotes}% ({CandidateDict[candidate]})")
+    PercentVotes = round((CandidateDict[candidate] / TotalVotes) * 100,3)
+    print(f"{candidate}: {PercentVotes}% ({CandidateDict[candidate]})")
  
 print("-------------------------------------------")
 Winner = max(CandidateDict, key=CandidateDict.get)

@@ -27,9 +27,9 @@ with open(csvpath) as csvfile:
     # Build list containing changes in profit/loss
     x = 0
 
-    while x < (len(ProfitLoss)-1):
+    while x < (len(ProfitLoss) - 1):
 
-        Change.append(ProfitLoss[x+1]-ProfitLoss[x])
+        Change.append(ProfitLoss[x + 1] - ProfitLoss[x])
         x = x + 1
 
     # Define necessary variables
@@ -39,15 +39,15 @@ with open(csvpath) as csvfile:
 
     TotalChange = sum(int(x) for x in Change)
 
-    Average = round(TotalChange/len(Change),2)
+    Average = round(TotalChange / len(Change),2)
 
     GreatestIncrease = max(Change)
 
     GreatestDecrease = min(Change)
 
-    GreatestIncreaseDate = Date[Change.index(GreatestIncrease)+1]
+    GreatestIncreaseDate = Date[Change.index(GreatestIncrease) + 1]
 
-    GreatestDecreaseDate = Date[Change.index(GreatestDecrease)+1]
+    GreatestDecreaseDate = Date[Change.index(GreatestDecrease) + 1]
 
     # Print results
     print("Financial Analysis")

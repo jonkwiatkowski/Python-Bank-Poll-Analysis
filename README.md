@@ -30,3 +30,8 @@ A Python script was created to calculate the following values:
 * Total number of votes each candidate won
 
 * Winner of the election based on popular vote
+
+## References
+
+* Module 3 Challenge Instructions
+* https://www.w3schools.com/python/python_ref_dictionary.asp
