@@ -13,6 +13,7 @@ Candidate = []
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
 
+    # Store the header
     csvheader = next(csvfile)
 
     for row in csvreader:
@@ -23,7 +24,7 @@ with open(csvpath) as csvfile:
 
         Candidate.append(row[2])
 
-
+# Finds total number of votes
 TotalVotes = len(BallotID)
 
 #Create empty dictionary
