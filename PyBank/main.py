@@ -63,3 +63,23 @@ with open(csvpath) as csvfile:
     print("Greatest Increase in Profits: " + GreatestIncreaseDate + " ($" + str(GreatestIncrease) + ")")
 
     print("Greatest Decrease in Profits: " + GreatestDecreaseDate + " ($" + str(GreatestDecrease) + ")")
+
+    # Print results to txt file
+
+    AnalysisResults = open(os.path.join('analysis','PybankAnalysis.txt'), 'w')
+
+    print("Financial Analysis", file = AnalysisResults)
+
+    print("------------------------------------------------", file = AnalysisResults)
+
+    print("Total Months: " + str(NumberDates), file = AnalysisResults)
+
+    print("Total: $" + str(Total), file = AnalysisResults)
+
+    print("Average Change: $" + str(Average), file = AnalysisResults)
+
+    print("Greatest Increase in Profits: " + GreatestIncreaseDate + " ($" + str(GreatestIncrease) + ")", file = AnalysisResults)
+
+    print("Greatest Decrease in Profits: " + GreatestDecreaseDate + " ($" + str(GreatestDecrease) + ")", file = AnalysisResults)
+
+    AnalysisResults.close()

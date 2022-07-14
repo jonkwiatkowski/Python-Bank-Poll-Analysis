@@ -41,7 +41,7 @@ for candidate in Candidate:
 # Eliminate duplicates keeping only unique candidates as keys and their frequency as values
 CandidateDict = {candidate:number for candidate, number in CandidateDict.items() if number > 1}
 
-# Print results
+# Prints results
 print("Election Results")
 
 print("------------------------------------------")
@@ -60,3 +60,27 @@ Winner = max(CandidateDict, key=CandidateDict.get)
 print(f"Winner: {Winner}")
 
 print("-------------------------------------------")
+
+# Prints results to txt file
+AnalysisResults = open(os.path.join('analysis','PypollAnalysis.txt'), 'w')
+   
+print("Election Results", file = AnalysisResults)
+
+print("------------------------------------------", file = AnalysisResults)
+
+print("Total Votes: " + str(TotalVotes), file = AnalysisResults)
+
+print("------------------------------------------", file = AnalysisResults)
+
+for candidate in CandidateDict:
+    PercentVotes = round((CandidateDict[candidate] / TotalVotes) * 100,3)
+    print(f"{candidate}: {PercentVotes}% ({CandidateDict[candidate]})", file = AnalysisResults)
+ 
+print("-------------------------------------------", file = AnalysisResults)
+Winner = max(CandidateDict, key=CandidateDict.get)
+
+print(f"Winner: {Winner}", file = AnalysisResults)
+
+print("-------------------------------------------", file = AnalysisResults)
+
+AnalysisResults.close()
