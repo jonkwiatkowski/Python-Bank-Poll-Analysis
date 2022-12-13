@@ -1,5 +1,5 @@
-# python-challenge
-My submission for Homework Assignment 3.
+# Python Financial and Polling Analysis
+
 ## PyBank
 Analysis of the financial records for a bank. The dataset involved contains "Date" and Profit/Loss"
 
